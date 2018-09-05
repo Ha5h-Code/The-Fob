@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loginButton">Unlock</string>
+    <string name="logo_content_description">logo of the @string/app_name</string>
+    <string name="login_label">"Sign in"</string>
+
+</resources>
