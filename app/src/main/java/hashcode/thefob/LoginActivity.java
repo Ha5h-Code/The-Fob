@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity //implements LoaderCallback
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_without_finger);
+        setContentView(R.layout.register_layout);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         //populateAutoComplete();
