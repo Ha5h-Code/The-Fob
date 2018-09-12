@@ -62,6 +62,11 @@ public class SignUpActivity extends AppCompatActivity
                 checkAndIndicate(specialCharIndicator,PasswordEvaluator.hasSpecialCharacters(s.toString()));
                 checkAndIndicate(charLength,PasswordEvaluator.checkLength(s.toString(),PASSWORD_LENGTH));
 
+                if(PasswordEvaluator.checkAll(s.toString(),passwordConfirm.getText().toString(),PASSWORD_LENGTH))
+                    button.setBackground(getResources().getDrawable(R.drawable.button_bg_rounded_corner));
+                else
+                    button.setBackground(getResources().getDrawable(R.drawable.inactive_button_bg_rounded_corners));
+
 
             }
 
