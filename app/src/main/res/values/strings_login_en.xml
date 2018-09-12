@@ -7,5 +7,15 @@
     <string name="welcome_msg_header">Welcome to The Fob!</string>
     <string name="welcome_msg_text">The Guardian of Your Passwords </string>
     <string name="get_started">Get Started</string>
-
+    <string name="sign_up">Sign Up</string>
+    <string name="Lets_get_started">Lets Get Started!</string>
+    <string name="setup_your_master_password">Setup your master password</string>
+    <string name="confirm_password">Confirm Password: </string>
+    <string name="continue_string">Continue</string>
+    <string name="password_should">Password Should:</string>
+    <string name="password_length">More Than 8 characters long</string>
+    <string name="password_special_char">Include at least one special character(! @ # ?)</string>
+    <string name="password_uppercase">Include at least one uppercase letter</string>
+    <string name="password_lowercase">Include at least one lowercase letter</string>
+    <string name="password_digit">Include at least one number</string>
 </resources>

@@ -20,4 +20,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>සිංහල</item>
+    </string-array>
 </resources>
