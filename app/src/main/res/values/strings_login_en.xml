@@ -13,7 +13,7 @@
     <string name="confirm_password">Confirm Password: </string>
     <string name="continue_string">Continue</string>
     <string name="password_should">Password Should:</string>
-    <string name="password_length">More Than 8 characters long</string>
+    <string name="password_length">Be more Than 8 characters long</string>
     <string name="password_special_char">Include at least one special character(! @ # ?)</string>
     <string name="password_uppercase">Include at least one uppercase letter</string>
     <string name="password_lowercase">Include at least one lowercase letter</string>

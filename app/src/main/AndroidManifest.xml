@@ -29,7 +29,8 @@
             android:name=".login.SignUpActivity"
             android:theme="@style/AppTheme.AppBarOverlay"
             android:parentActivityName=".login.LoginActivity"
-            android:label="@string/sign_up">
+            android:label="@string/sign_up"
+            android:windowSoftInputMode="adjustResize">
 
         </activity>
     </application>
