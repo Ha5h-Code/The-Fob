@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -108,7 +107,7 @@ public class SignUpActivity extends AppCompatActivity
             }
         });
 
-       // final View activityRootView = findViewById(R.id.activityRoot);
+
         final ViewGroup activityRootView = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
         activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -120,7 +119,7 @@ public class SignUpActivity extends AppCompatActivity
                 LinearLayout masterPassword = findViewById(R.id.masterPasswordLinear);
                 LinearLayout confirmPassword = findViewById(R.id.confirmPasswordLinear);
                 LinearLayout passwordConstraints = findViewById(R.id.passwordContraint);
-                Button button = findViewById(R.id.button);
+                //Button button = findViewById(R.id.button);
                 LinearLayout rootView = findViewById(R.id.rootLayout);
 
 
@@ -183,6 +182,7 @@ public class SignUpActivity extends AppCompatActivity
             }
         });
     }
+
 
 
 }
