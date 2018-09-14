@@ -22,7 +22,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper
             "DROP TABLE IF EXISTS " + "AccountType";
 
 
-    public SQLiteDatabaseHelper(Context context) {
+    private SQLiteDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -40,9 +40,27 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int v) {
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
         onCreate(sqLiteDatabase);
+    }
+
+    public void changePasswords(Context context,String oldPassword,String newPassword)
+    {
+        final SQLiteDatabaseHelper helper = new SQLiteDatabaseHelper(context);
+        final SQLiteDatabase db = helper.getWritableDatabase(oldPassword);
+
+
+        String PRAGMA_KEY = "PRAGMA key = " + oldPassword + ";";
+        String PRAGMA_REKEY = "PRAGMA rekey = " + newPassword + ";";
+        db.rawExecSQL(PRAGMA_KEY);
+        db.rawExecSQL(PRAGMA_REKEY);
+    }
+
+    public static SQLiteDatabase connectDataBase(Context context,String password)
+    {
+        return SQLiteDatabaseHelper.getInstance(context).getWritableDatabase(password);
+
     }
 
 }

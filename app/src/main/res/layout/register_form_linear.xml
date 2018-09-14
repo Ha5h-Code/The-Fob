@@ -186,7 +186,8 @@
             android:text="@string/continue_string"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:onClick="continueButton"/>
 
 
     </LinearLayout>

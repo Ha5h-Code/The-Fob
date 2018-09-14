@@ -15,6 +15,12 @@ import android.view.View;
 import hashcode.thefob.R;
 import hashcode.thefob.utility.PasswordEvaluator;
 
+import net.sqlcipher.database.SQLiteDatabase;
+import hashcode.thefob.dataRepository.SQLiteDatabaseHelper;
+import android.content.Context;
+
+
+
 import static hashcode.thefob.utility.PixelAdjustor.dpToPx;
 
 
@@ -31,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity
         final EditText passwordInput = findViewById(R.id.password_input);
         final EditText passwordConfirm = findViewById(R.id.password_confirm);
         final Button button = findViewById(R.id.button);
+
         passwordInput.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -99,7 +106,7 @@ public class SignUpActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                if(PasswordEvaluator.checkAll(s.toString(),passwordConfirm.getText().toString(),PASSWORD_LENGTH))
+                if(PasswordEvaluator.checkAll(s.toString(),passwordInput.getText().toString(),PASSWORD_LENGTH))
                     button.setBackground(getResources().getDrawable(R.drawable.button_bg_rounded_corner));
                 else
                     button.setBackground(getResources().getDrawable(R.drawable.inactive_button_bg_rounded_corners));
@@ -183,6 +190,14 @@ public class SignUpActivity extends AppCompatActivity
         });
     }
 
+
+    public void continueButton(View view)
+    {
+        SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(this,LoginActivity.PASSWORD);
+        EditText passwordInput = findViewById(R.id.password_input);
+        LoginActivity.PASSWORD = passwordInput.getText().toString();
+        db.changePassword(LoginActivity.PASSWORD);
+    }
 
 
 }

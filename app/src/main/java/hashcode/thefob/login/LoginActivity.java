@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import net.sqlcipher.database.SQLiteDatabase;
@@ -17,6 +16,7 @@ import hashcode.thefob.R;
  */
 public class LoginActivity extends AppCompatActivity
 {
+    public static String PASSWORD = "fob123" ;
 
 
 
@@ -25,11 +25,12 @@ public class LoginActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         SQLiteDatabase.loadLibs(this);
+
         try
         {
-            SQLiteDatabase db = connectDataBase("");
+            SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(this,PASSWORD);
             setContentView(R.layout.register_layout);
-            db.close();
+
         }
         catch(net.sqlcipher.database.SQLiteException e)
         {
@@ -39,11 +40,6 @@ public class LoginActivity extends AppCompatActivity
 
     }
 
-    public SQLiteDatabase connectDataBase(String password)
-    {
-        return SQLiteDatabaseHelper.getInstance(this).getWritableDatabase(password);
-
-    }
 
     public void openSignupForm(View view)
     {
