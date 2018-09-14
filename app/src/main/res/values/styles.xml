@@ -13,14 +13,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+    <style name="AppTheme.AppBarOverlay" parent="Theme.AppCompat.DayNight.DarkActionBar" >
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:actionBarStyle">@style/customActionBar</item>
     </style>
 
-    <style name="customActionBar">
+    <style name="customActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
