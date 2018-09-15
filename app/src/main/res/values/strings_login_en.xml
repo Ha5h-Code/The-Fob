@@ -25,4 +25,5 @@
     <string name="planB_red_note">Note:\nIt is recommended to configure Plan B as there is no way of recovering a lost password. But it is your responsibility to safeguard the email. You can print out the email and delete the soft copy.</string>
     <string name="configure_planB">Configure</string>
     <string name="skip_planB">Next</string>
+    <string name="login_error">Master Password is Incorrect! </string>
 </resources>

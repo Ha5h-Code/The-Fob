@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/rootView">
 
 
     <Button
@@ -16,7 +17,7 @@
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"
         android:text="@string/loginButton"
-
+        android:onClick="login"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="18sp"
@@ -44,7 +45,7 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/password_input_login"
         android:layout_width="286dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
