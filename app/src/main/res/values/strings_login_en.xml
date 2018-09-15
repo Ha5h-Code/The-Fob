@@ -19,10 +19,10 @@
     <string name="password_lowercase">Include at least one lowercase letter</string>
     <string name="password_digit">Include at least one number</string>
     <string name="setup_planB">Configure the Plan B</string>
-    <string name="planB_explanation">Save your password as a PDF in case you forgot it! </string>
+    <string name="planB_explanation">Save your password in email inbox in case you forgot it! </string>
     <string name="confirm_master_password">Confirm Master Password</string>
     <string name="master_password_signup">Master Password</string>
-    <string name="planB_red_note">Note: It is recomended to configure plan B as there is no way of recovering a lost password. And it is your responsibility to safeguard the exported pdf.</string>
+    <string name="planB_red_note">Note:\nIt is recommended to configure Plan B as there is no way of recovering a lost password. But it is your responsibility to safeguard the email. You can print out the email and delete the soft copy.</string>
     <string name="configure_planB">Configure</string>
-    <string name="skip_planB">skip</string>
+    <string name="skip_planB">Next</string>
 </resources>

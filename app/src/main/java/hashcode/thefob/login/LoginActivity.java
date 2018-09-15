@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import net.sqlcipher.database.SQLiteDatabase;
+
+import hashcode.thefob.MenuActivity;
 import hashcode.thefob.dataRepository.SQLiteDatabaseHelper;
 
 import hashcode.thefob.R;
@@ -44,6 +46,12 @@ public class LoginActivity extends AppCompatActivity
     public void openSignupForm(View view)
     {
         Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
+    }
+
+    public void nextActivity()
+    {
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 }
