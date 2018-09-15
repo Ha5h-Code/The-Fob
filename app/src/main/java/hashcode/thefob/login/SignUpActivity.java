@@ -1,10 +1,13 @@
 package hashcode.thefob.login;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
@@ -197,6 +200,20 @@ public class SignUpActivity extends AppCompatActivity
         EditText passwordInput = findViewById(R.id.password_input);
         LoginActivity.PASSWORD = passwordInput.getText().toString();
         db.changePassword(LoginActivity.PASSWORD);
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(SignUpActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.password_recovery,null);
+        final Button configurePlanB = findViewById(R.id.configure_planB);
+        final Button skipPlanB = findViewById(R.id.skip_planB);
+
+        configurePlanB.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
     }
 
 
