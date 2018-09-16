@@ -28,7 +28,7 @@ public class AccountTypeOperations {
     {
 
     }
-    public Cursor createCursor(Context context, int cusorId) {
+    public static Cursor createCursor(Context context, int cusorId) {
 
         //to convert the integer cursor id as a String value
         String strCursorId = Integer.toString(cusorId);
@@ -38,7 +38,7 @@ public class AccountTypeOperations {
             SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(context, LoginActivity.PASSWORD);
 
                     cursor = db.query("AccountType",
-                    new String[]{"ID", "Name", "Icon"},
+                    new String[]{ "Name", "Icon"},
                     "ID=?",
                     new String[]{strCursorId},
                     null,
@@ -96,4 +96,16 @@ public class AccountTypeOperations {
 
     }
 
+
+
+    public static String getAccountTypeName(Context context ,int cursorId){
+        String accountTypeName=null;
+        Cursor cursor=createCursor(context,cursorId);
+        if(cursor.moveToFirst()){
+            accountTypeName= cursor.getString(0);
+        }
+        return accountTypeName;
+
+
+    }
 }
