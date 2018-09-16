@@ -20,6 +20,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="aditional_content">Aditional</string>
 
     <string-array name="languages">
         <item>English</item>

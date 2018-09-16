@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".contentActivities.MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="My Fob"/>
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"

@@ -18,6 +18,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:actionBarStyle">@style/customActionBar</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
     <style name="customActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
