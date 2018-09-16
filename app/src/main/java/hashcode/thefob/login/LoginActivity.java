@@ -23,8 +23,7 @@ import hashcode.thefob.R;
  */
 public class LoginActivity extends AppCompatActivity
 {
-    public static String PASSWORD = "fob123" ;
-
+    public static String PASSWORD = "" ;
 
 
     @Override
@@ -35,7 +34,8 @@ public class LoginActivity extends AppCompatActivity
 
         try
         {
-            SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(this,PASSWORD);
+            String tempPassword = "fob123";
+            SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(this, tempPassword);
             setContentView(R.layout.register_layout);
 
         }
