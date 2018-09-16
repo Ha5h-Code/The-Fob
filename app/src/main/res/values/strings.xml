@@ -20,9 +20,12 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="aditional_content">Aditional</string>
+    <string name="image_of_the_account_type">Image of the Account Type</string>
 
     <string-array name="languages">
         <item>English</item>
         <item>සිංහල</item>
     </string-array>
+    <string name="title_activity_account">AccountActivity</string>
 </resources>

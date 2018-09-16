@@ -24,16 +24,10 @@ public class AccountTypeOperations {
 
     }
 
-    public static void deleteAccountType(SQLiteDatabase db,int id)
+    public static void deleteAccountType(int id)
     {
-        db.delete("AccountType",
-                "Id=?",
-                new String[]{Integer.toString(id)}
-                );
 
     }
-
-
     public static Cursor createCursor(Context context, int cusorId) {
 
         //to convert the integer cursor id as a String value
