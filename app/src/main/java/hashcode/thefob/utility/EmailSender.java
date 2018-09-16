@@ -10,17 +10,15 @@ import hashcode.thefob.login.SignUpActivity;
 
 public class EmailSender
 {
-    public static boolean sendEmail(Context context, String message)
+    public static boolean sendEmail(Context context, String message,String subject,String recepientEmail)
     {
-        String recepientEmail = "";
+
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + recepientEmail));
         //emailIntent.setType("text/plain");
 
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, "nipunsampath@gmail.com");
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Password Recovery - The Fob");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Your Password is " + message);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT,  message);
 
         try
         {

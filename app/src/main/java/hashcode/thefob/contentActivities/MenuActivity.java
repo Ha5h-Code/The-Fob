@@ -131,7 +131,7 @@ public class MenuActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        NavigationItemHandler handler = new NavigationItemHandler();
+        NavigationItemHandler handler = new NavigationItemHandler(this);
         if (id == R.id.nav_myFob)
         {
             // Handle the camera action
@@ -146,10 +146,10 @@ public class MenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_help)
         {
-            handler.handleHelp(this);
+            handler.handleHelp();
         } else if (id == R.id.nav_about)
         {
-
+            handler.handleAboutUs();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

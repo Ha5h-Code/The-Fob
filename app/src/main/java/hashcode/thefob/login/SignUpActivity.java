@@ -212,7 +212,10 @@ public class SignUpActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                sendEmail(SignUpActivity.this, LoginActivity.PASSWORD);
+                String message = String.format("Your Passwor is %s",LoginActivity.PASSWORD);
+                String subject = "Password Recovery - The Fob";
+                String recipient = "";
+                sendEmail(SignUpActivity.this,message,subject,recipient);
 
 //
             }

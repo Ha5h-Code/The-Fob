@@ -28,4 +28,9 @@
         <item>සිංහල</item>
     </string-array>
     <string name="title_activity_account">AccountActivity</string>
+    <string name="organization_logo">organization logo</string>
+    <string name="hash_code">Hash Code</string>
+    <string name="copy_rights">Copyright © 2018 All Rights Reserved</string>
+    <string name="email">email</string>
+    <string name="github">github</string>
 </resources>

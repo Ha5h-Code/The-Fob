@@ -1,43 +1,95 @@
 package hashcode.thefob.utility;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+
+import hashcode.thefob.R;
+import hashcode.thefob.login.LoginActivity;
+import hashcode.thefob.login.SignUpActivity;
+
+import static hashcode.thefob.utility.EmailSender.sendEmail;
+
 
 public class NavigationItemHandler
 {
     private Intent intent;
+    private  Context context;
+    private String gitUrl = "https://github.com/Ha5h-Code/The-Fob";
+    private String emailAddress = "nipunsampath@gmail.com";
 
-    public void handleMyfob(Context context)
+    public NavigationItemHandler(Context context)
+    {
+        this.context = context;
+    }
+
+    public void handleMyfob()
     {
 
     }
 
-    public void handleFavourites(Context context)
+    public void handleFavourites()
     {
 
     }
 
-    public void handleCreate(Context context)
+    public void handleCreate()
     {
 
     }
 
-    public void handleSettings(Context context)
+    public void handleSettings()
     {
 
     }
 
-    public void handleHelp(Context context)
+    public void handleHelp()
     {
-        String url = "https://github.com/Ha5h-Code/The-Fob";
+
+        openUrl(gitUrl);
+
+    }
+
+    public void handleAboutUs()
+    {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View mView = inflater.inflate(R.layout.about_us_alert_box, null);
+        final ImageView github = mView.findViewById(R.id.github_about);
+        final ImageView email = mView.findViewById(R.id.mail_about);
+
+        github.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openUrl(gitUrl);
+
+
+            }
+        });
+
+        email.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                EmailSender.sendEmail(context,"","About The Fob",emailAddress);
+            }
+        });
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+    }
+
+    private void openUrl(String url)
+    {
         intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         context.startActivity(intent);
-    }
-
-    public void handleAboutUs(Context context)
-    {
-
     }
 }
