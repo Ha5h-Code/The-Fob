@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import hashcode.thefob.Entities.AccountType;
 import hashcode.thefob.R;
+import hashcode.thefob.utility.AccountTypeAdapter;
 import hashcode.thefob.utility.NavigationItemHandler;
 
 public class MenuActivity extends AppCompatActivity
