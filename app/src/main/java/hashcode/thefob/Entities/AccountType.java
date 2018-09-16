@@ -9,7 +9,7 @@ public class AccountType {
 
     private String accountTypeName;
 
-    private String accountTypeId;
+    private int accountTypeId;
 
     // Drawable resource ID for the icon
     private int iconId;
@@ -19,13 +19,13 @@ public class AccountType {
 
 
 
-    public AccountType(String accountTypeName, String accountTypeId, int iconId) {
+    public AccountType(String accountTypeName, int accountTypeId, int iconId) {
         this.accountTypeName = accountTypeName;
         this.accountTypeId = accountTypeId;
         this.iconId = iconId;
     }
 
-    public AccountType(String accountTypeName, String accountTypeId, int iconId, ArrayList<Account> accounts) {
+    public AccountType(String accountTypeName, int accountTypeId, int iconId, ArrayList<Account> accounts) {
         this.accountTypeName = accountTypeName;
         this.accountTypeId = accountTypeId;
         this.iconId = iconId;
@@ -33,6 +33,7 @@ public class AccountType {
     }
 
     public String getAccountTypeName() {
+
         return accountTypeName;
     }
 
@@ -40,11 +41,11 @@ public class AccountType {
         this.accountTypeName = accountTypeName;
     }
 
-    public String getAccountTypeId() {
+    public int getAccountTypeId() {
         return accountTypeId;
     }
 
-    public void setAccountTypeId(String accountTypeId) {
+    public void setAccountTypeId(int accountTypeId) {
         this.accountTypeId = accountTypeId;
     }
 
