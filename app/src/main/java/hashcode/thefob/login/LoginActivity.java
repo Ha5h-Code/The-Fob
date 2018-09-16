@@ -23,9 +23,8 @@ import hashcode.thefob.R;
  */
 public class LoginActivity extends AppCompatActivity
 {
+
     public static String PASSWORD = "fob123" ;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -1,11 +1,18 @@
 package hashcode.thefob.dataRepository;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.widget.Toast;
 
+import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteException;
 
-public class AccountTypeOperations
-{
+import hashcode.thefob.login.LoginActivity;
+
+import static javax.xml.ws.soap.AddressingFeature.ID;
+
+public class AccountTypeOperations {
     public static void insertAccountType(SQLiteDatabase db, String name, int iconId)
     {
         ContentValues accountTypeValues = new ContentValues();
@@ -19,5 +26,34 @@ public class AccountTypeOperations
     {
 
     }
+    public Cursor createCursor(Context context, int cusorId) {
+
+        //to convert the integer cursor id as a String value
+        String strCursorId = Integer.toString(cusorId);
+
+        Cursor cursor=null;
+        try {
+            SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(context, LoginActivity.PASSWORD);
+
+                    cursor = db.query("AccountType",
+                    new String[]{"ID", "Name", "Icon"},
+                    "ID=?",
+                    new String[]{strCursorId},
+                    null,
+                    null,
+                    null);
+
+
+        } catch (SQLiteException e) {
+
+            Toast toast = Toast.makeText(context, "DataBase Unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        return cursor;
+
+
+
+    }
+    
 
 }
