@@ -1,10 +1,16 @@
 package hashcode.thefob.login;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
@@ -12,9 +18,21 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.view.View;
+
+import hashcode.thefob.MenuActivity;
 import hashcode.thefob.R;
 import hashcode.thefob.utility.PasswordEvaluator;
 
+import net.sqlcipher.database.SQLiteDatabase;
+
+import hashcode.thefob.dataRepository.SQLiteDatabaseHelper;
+import hashcode.thefob.utility.PdfBuilder;
+
+import android.content.Context;
+import android.widget.Toast;
+
+
+import static hashcode.thefob.utility.EmailSender.sendEmail;
 import static hashcode.thefob.utility.PixelAdjustor.dpToPx;
 
 
@@ -31,6 +49,12 @@ public class SignUpActivity extends AppCompatActivity
         final EditText passwordInput = findViewById(R.id.password_input);
         final EditText passwordConfirm = findViewById(R.id.password_confirm);
         final Button button = findViewById(R.id.button);
+        final TextView uppercaseIndicator = findViewById(R.id.uppercase_check);
+        final TextView lowercaseIndicator = findViewById(R.id.lowercase_check);
+        final TextView numberIndicator = findViewById(R.id.number_check);
+        final TextView specialCharIndicator = findViewById(R.id.special_char_indicator);
+        final TextView charLength = findViewById(R.id.char_length_indicator);
+
         passwordInput.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -48,32 +72,22 @@ public class SignUpActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                TextView uppercaseIndicator = findViewById(R.id.uppercase_check);
-                TextView lowercaseIndicator = findViewById(R.id.lowercase_check);
-                TextView numberIndicator = findViewById(R.id.number_check);
-                TextView specialCharIndicator = findViewById(R.id.special_char_indicator);
-                TextView charLength = findViewById(R.id.char_length_indicator);
+                checkAndIndicate(uppercaseIndicator, PasswordEvaluator.hasCapital(s.toString()));
+                checkAndIndicate(lowercaseIndicator, PasswordEvaluator.hasSimple(s.toString()));
+                checkAndIndicate(numberIndicator, PasswordEvaluator.hasDigits(s.toString()));
+                checkAndIndicate(specialCharIndicator, PasswordEvaluator.hasSpecialCharacters(s.toString()));
+                checkAndIndicate(charLength, PasswordEvaluator.checkLength(s.toString(), PASSWORD_LENGTH));
 
-
-
-
-                checkAndIndicate(uppercaseIndicator,PasswordEvaluator.hasCapital(s.toString()));
-                checkAndIndicate(lowercaseIndicator,PasswordEvaluator.hasSimple(s.toString()));
-                checkAndIndicate(numberIndicator,PasswordEvaluator.hasDigits(s.toString()));
-                checkAndIndicate(specialCharIndicator,PasswordEvaluator.hasSpecialCharacters(s.toString()));
-                checkAndIndicate(charLength,PasswordEvaluator.checkLength(s.toString(),PASSWORD_LENGTH));
-
-                if(PasswordEvaluator.checkAll(s.toString(),passwordConfirm.getText().toString(),PASSWORD_LENGTH))
+                if (PasswordEvaluator.checkAll(s.toString(), passwordConfirm.getText().toString(), PASSWORD_LENGTH))
                     button.setBackground(getResources().getDrawable(R.drawable.button_bg_rounded_corner));
                 else
                     button.setBackground(getResources().getDrawable(R.drawable.inactive_button_bg_rounded_corners));
-
 
             }
 
             void checkAndIndicate(TextView indicator, boolean condition)
             {
-                if(condition)
+                if (condition)
                     indicator.setTextColor(getResources().getColor(R.color.correct));
                 else
                     indicator.setTextColor(getResources().getColor(R.color.incorrect));
@@ -99,20 +113,26 @@ public class SignUpActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                if(PasswordEvaluator.checkAll(s.toString(),passwordConfirm.getText().toString(),PASSWORD_LENGTH))
+
+
+                if (PasswordEvaluator.checkAll(s.toString(), passwordInput.getText().toString(), PASSWORD_LENGTH))
                     button.setBackground(getResources().getDrawable(R.drawable.button_bg_rounded_corner));
                 else
                     button.setBackground(getResources().getDrawable(R.drawable.inactive_button_bg_rounded_corners));
 
             }
+
+
         });
 
 
         final ViewGroup activityRootView = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
-        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener()
+        {
             @Override
-            public void onGlobalLayout() {
+            public void onGlobalLayout()
+            {
                 int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
                 TextView tv1 = findViewById(R.id.textView4);
                 TextView tv2 = findViewById(R.id.textView5);
@@ -123,8 +143,8 @@ public class SignUpActivity extends AppCompatActivity
                 LinearLayout rootView = findViewById(R.id.rootLayout);
 
 
-
-                if (heightDiff > dpToPx(getApplicationContext(), 200)) { // if more than 200 dp, it's probably a keyboard...
+                if (heightDiff > dpToPx(getApplicationContext(), 200))
+                { // if more than 200 dp, it's probably a keyboard...
 
                     tv1.setVisibility(View.GONE);
                     tv2.setVisibility(View.GONE);
@@ -156,8 +176,7 @@ public class SignUpActivity extends AppCompatActivity
                     button.setLayoutParams(buttonParam);
 
 
-                }
-                else
+                } else
                 {
                     tv1.setVisibility(View.VISIBLE);
                     tv2.setVisibility(View.VISIBLE);
@@ -183,6 +202,48 @@ public class SignUpActivity extends AppCompatActivity
         });
     }
 
+
+    public void continueButton(View view)
+    {
+        SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(this, LoginActivity.PASSWORD);
+        EditText passwordInput = findViewById(R.id.password_input);
+        LoginActivity.PASSWORD = passwordInput.getText().toString();
+        db.changePassword(LoginActivity.PASSWORD);
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(SignUpActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.password_recovery, null);
+        final Button configurePlanB = mView.findViewById(R.id.configure_planB);
+        final Button skipPlanB = mView.findViewById(R.id.skip_planB);
+
+        configurePlanB.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendEmail(SignUpActivity.this, LoginActivity.PASSWORD);
+
+//
+            }
+        });
+
+        skipPlanB.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                nextActivity();
+            }
+        });
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+    }
+
+    public void nextActivity()
+    {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
 
 
 }

@@ -13,9 +13,9 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + "AccountType" + " (" +
-                    "Id" + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "Id" + " INTEGER PRIMARY KEY," +
                     "Name Text,"  +
-                    "iconId INTERGER" +
+                    "Icon STRING" +
                     " )";
 
     private static final String SQL_DELETE_ENTRIES =
@@ -45,12 +45,4 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper
         onCreate(sqLiteDatabase);
     }
 
-
-    private static void insertAccountType(SQLiteDatabase db,String name,int iconId){
-        ContentValues accountTypeValues = new ContentValues();
-        accountTypeValues.put("name",name);
-        accountTypeValues.put("IconId",iconId);
-        db.insert("AccountType",null,accountTypeValues);
-
-    }
 }

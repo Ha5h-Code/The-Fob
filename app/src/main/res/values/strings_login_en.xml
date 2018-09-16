@@ -3,7 +3,7 @@
     <string name="loginButton">Unlock</string>
     <string name="logo_content_description">logo of the @string/app_name</string>
     <string name="login_label">"Sign in"</string>
-    <string name="master_password">Master Password: </string>
+    <string name="master_password">Enter Your Master Password </string>
     <string name="welcome_msg_header">Welcome to The Fob!</string>
     <string name="welcome_msg_text">The Guardian of Your Passwords </string>
     <string name="get_started">Get Started</string>
@@ -18,4 +18,12 @@
     <string name="password_uppercase">Include at least one uppercase letter</string>
     <string name="password_lowercase">Include at least one lowercase letter</string>
     <string name="password_digit">Include at least one number</string>
+    <string name="setup_planB">Configure the Plan B</string>
+    <string name="planB_explanation">Save your password in email inbox in case you forgot it! </string>
+    <string name="confirm_master_password">Confirm Master Password</string>
+    <string name="master_password_signup">Master Password</string>
+    <string name="planB_red_note">Note:\nIt is recommended to configure Plan B as there is no way of recovering a lost password. But it is your responsibility to safeguard the email. You can print out the email and delete the soft copy.</string>
+    <string name="configure_planB">Configure</string>
+    <string name="skip_planB">Next</string>
+    <string name="login_error">Master Password is Incorrect! </string>
 </resources>
