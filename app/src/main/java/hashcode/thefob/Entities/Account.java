@@ -7,8 +7,8 @@ import java.util.List;
 public class Account {
     private String accountId;
     private String accountName;
-    private Hashtable<String, String> accountDetails
-            = new Hashtable<String, String>();
+    private Hashtable<String, String,String > accountDetails
+            = new Hashtable<String, String,String >();
 
     public Account(String accountId, String accountName, Hashtable<String, String> accountDetails) {
         this.accountId = accountId;
