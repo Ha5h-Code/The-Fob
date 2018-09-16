@@ -1,16 +1,12 @@
 package hashcode.thefob.login;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
@@ -19,17 +15,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.view.View;
 
-import hashcode.thefob.MenuActivity;
+import hashcode.thefob.contentActivities.MenuActivity;
 import hashcode.thefob.R;
 import hashcode.thefob.utility.PasswordEvaluator;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
 import hashcode.thefob.dataRepository.SQLiteDatabaseHelper;
-import hashcode.thefob.utility.PdfBuilder;
-
-import android.content.Context;
-import android.widget.Toast;
 
 
 import static hashcode.thefob.utility.EmailSender.sendEmail;

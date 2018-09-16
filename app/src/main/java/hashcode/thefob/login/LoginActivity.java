@@ -2,7 +2,6 @@ package hashcode.thefob.login;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,13 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
-import hashcode.thefob.MenuActivity;
+import hashcode.thefob.contentActivities.MenuActivity;
 import hashcode.thefob.dataRepository.SQLiteDatabaseHelper;
 
 import hashcode.thefob.R;

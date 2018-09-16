@@ -6,7 +6,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 public class AccountTypeOperations
 {
-    private static void insertAccountType(SQLiteDatabase db, String name, int iconId)
+    public static void insertAccountType(SQLiteDatabase db, String name, int iconId)
     {
         ContentValues accountTypeValues = new ContentValues();
         accountTypeValues.put("name", name);
@@ -14,4 +14,10 @@ public class AccountTypeOperations
         db.insert("AccountType", null, accountTypeValues);
 
     }
+
+    public static void deleteAccountType(int id)
+    {
+
+    }
+
 }
