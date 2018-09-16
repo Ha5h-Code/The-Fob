@@ -4,5 +4,5 @@
         android:fromXDelta="0"
         android:toXDelta="15"
         android:duration="1"
-        android:repeatCount="7" />
+        android:repeatCount="2" />
 </set>
