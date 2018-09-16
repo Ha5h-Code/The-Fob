@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import hashcode.thefob.Entities.AccountType;
 import hashcode.thefob.R;
+import hashcode.thefob.utility.NavigationItemHandler;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -129,7 +130,8 @@ public class MenuActivity extends AppCompatActivity
     {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent intent;
+
+        NavigationItemHandler handler = new NavigationItemHandler();
         if (id == R.id.nav_myFob)
         {
             // Handle the camera action
@@ -144,10 +146,7 @@ public class MenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_help)
         {
-            String url = "https://github.com/Ha5h-Code/The-Fob";
-            intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            startActivity(intent);
+            handler.handleHelp(this);
         } else if (id == R.id.nav_about)
         {
 

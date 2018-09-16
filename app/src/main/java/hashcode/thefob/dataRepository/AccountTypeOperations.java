@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 import hashcode.thefob.login.LoginActivity;
 
-import static javax.xml.ws.soap.AddressingFeature.ID;
-
 public class AccountTypeOperations {
     public static void insertAccountType(SQLiteDatabase db, String name, int iconId)
     {
@@ -28,6 +26,7 @@ public class AccountTypeOperations {
     {
 
     }
+
     public static Cursor createCursor(Context context, int cusorId) {
 
         //to convert the integer cursor id as a String value
