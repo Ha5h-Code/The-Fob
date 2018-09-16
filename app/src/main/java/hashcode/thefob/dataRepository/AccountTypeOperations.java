@@ -8,6 +8,8 @@ import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteException;
 
+import java.util.ArrayList;
+
 import hashcode.thefob.login.LoginActivity;
 
 import static javax.xml.ws.soap.AddressingFeature.ID;
@@ -54,6 +56,44 @@ public class AccountTypeOperations {
 
 
     }
-    
+
+
+    public static ArrayList<Integer> getAllId(Context context){
+
+
+       Cursor cursor;
+       ArrayList<Integer> idArrayList=new ArrayList<Integer>();
+        try {
+            SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(context, LoginActivity.PASSWORD);
+
+            cursor = db.query("AccountType",
+                    new String[]{"ID"},
+                    null,
+                  null,
+                    null,
+                    null,
+                    null);
+
+
+             idArrayList=new ArrayList<Integer>();
+
+                while (cursor.moveToNext()){
+
+                    idArrayList.add(cursor.getInt(0));
+            }
+
+
+
+
+
+        } catch (SQLiteException e) {
+
+            Toast toast = Toast.makeText(context, "DataBase Unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        return  idArrayList;
+
+
+    }
 
 }
