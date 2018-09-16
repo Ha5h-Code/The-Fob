@@ -110,6 +110,7 @@ public class AccountTypeOperations {
     }
 
 
+    //method use to get IconId  by giving the cursorId
     public static String getIconId(Context context ,int cursorId){
         String iconId=null;
         Cursor cursor=createCursor(context,cursorId);
