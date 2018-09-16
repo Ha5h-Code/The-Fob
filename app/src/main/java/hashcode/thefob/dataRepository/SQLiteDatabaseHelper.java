@@ -45,4 +45,33 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper
         onCreate(sqLiteDatabase);
     }
 
+<<<<<<< HEAD
+
+    private static void insertAccountType(SQLiteDatabase db,String name,int iconId){
+        ContentValues accountTypeValues = new ContentValues();
+        accountTypeValues.put("name",name);
+        accountTypeValues.put("IconId",iconId);
+        db.insert("AccountType",null,accountTypeValues);
+
+    }
+=======
+    public void changePasswords(Context context,String oldPassword,String newPassword)
+    {
+        final SQLiteDatabaseHelper helper = new SQLiteDatabaseHelper(context);
+        final SQLiteDatabase db = helper.getWritableDatabase(oldPassword);
+
+
+        String PRAGMA_KEY = "PRAGMA key = " + oldPassword + ";";
+        String PRAGMA_REKEY = "PRAGMA rekey = " + newPassword + ";";
+        db.rawExecSQL(PRAGMA_KEY);
+        db.rawExecSQL(PRAGMA_REKEY);
+    }
+
+    public static SQLiteDatabase connectDataBase(Context context,String password)
+    {
+        return SQLiteDatabaseHelper.getInstance(context).getWritableDatabase(password);
+
+    }
+
+>>>>>>> origin/master
 }
