@@ -38,7 +38,7 @@ public class AccountTypeOperations {
             SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(context, LoginActivity.PASSWORD);
 
                     cursor = db.query("AccountType",
-                    new String[]{ "Name", "Icon"},
+                    new String[]{ "Name", "IconId"},
                     "ID=?",
                     new String[]{strCursorId},
                     null,
@@ -97,7 +97,7 @@ public class AccountTypeOperations {
     }
 
 
-
+//method use to get AccountType Name by giving the id
     public static String getAccountTypeName(Context context ,int cursorId){
         String accountTypeName=null;
         Cursor cursor=createCursor(context,cursorId);
@@ -108,4 +108,17 @@ public class AccountTypeOperations {
 
 
     }
+
+
+    public static String getIconId(Context context ,int cursorId){
+        String iconId=null;
+        Cursor cursor=createCursor(context,cursorId);
+        if(cursor.moveToFirst()){
+            iconId= cursor.getString(1);
+        }
+        return iconId;
+
+
+    }
+
 }
