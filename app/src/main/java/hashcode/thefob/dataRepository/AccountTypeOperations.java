@@ -126,6 +126,7 @@ public class AccountTypeOperations {
        Cursor cursor;
        ArrayList<Integer> idArrayList=new ArrayList<Integer>();
         try {
+
             SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(context, LoginActivity.PASSWORD);
 
             cursor = db.query("AccountType",
