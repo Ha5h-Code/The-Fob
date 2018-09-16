@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 import hashcode.thefob.login.LoginActivity;
 
-import static javax.xml.ws.soap.AddressingFeature.ID;
 
 public class AccountTypeOperations {
     public static void insertAccountType(SQLiteDatabase db, String name, int iconId)

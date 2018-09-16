@@ -1,12 +1,10 @@
 package hashcode.thefob.contentActivities;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -134,16 +133,17 @@ public class MenuActivity extends AppCompatActivity
         NavigationItemHandler handler = new NavigationItemHandler(this);
         if (id == R.id.nav_myFob)
         {
-            // Handle the camera action
+
+            handler.handleMyfob();
         } else if (id == R.id.nav_favourites)
         {
-
+            handler.handleFavourites();
         } else if (id == R.id.nav_create)
         {
-
+            handler.handleCreate();
         } else if (id == R.id.nav_settings)
         {
-
+            handler.handleSettings();
         } else if (id == R.id.nav_help)
         {
             handler.handleHelp();

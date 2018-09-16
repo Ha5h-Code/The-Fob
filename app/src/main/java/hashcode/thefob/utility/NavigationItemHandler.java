@@ -9,10 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import hashcode.thefob.R;
-import hashcode.thefob.login.LoginActivity;
-import hashcode.thefob.login.SignUpActivity;
-
-import static hashcode.thefob.utility.EmailSender.sendEmail;
+import hashcode.thefob.contentActivities.MenuActivity;
 
 
 public class NavigationItemHandler
@@ -29,7 +26,7 @@ public class NavigationItemHandler
 
     public void handleMyfob()
     {
-
+        intent = new Intent(context, MenuActivity.class);
     }
 
     public void handleFavourites()

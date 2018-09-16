@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 
-import hashcode.thefob.login.SignUpActivity;
-
 
 public class EmailSender
 {
