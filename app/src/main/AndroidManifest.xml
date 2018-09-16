@@ -16,25 +16,28 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".contentActivities.MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="My Fob"/>
+            android:label="My Fob"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan|stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".login.SignUpActivity"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            android:parentActivityName=".login.LoginActivity"
             android:label="@string/sign_up"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:parentActivityName=".login.LoginActivity"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".contentActivities.AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

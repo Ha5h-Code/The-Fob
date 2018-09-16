@@ -6,32 +6,32 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_myFob"
-            android:icon="@drawable/ic_lock_icon"
-            android:title="@string/my_fob" />
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Import" />
         <item
             android:id="@+id/nav_favourites"
-            android:icon="@drawable/ic_favorite"
-            android:title="@string/favourites" />
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Gallery" />
         <item
             android:id="@+id/nav_create"
-            android:icon="@drawable/ic_create"
-            android:title="@string/create" />
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/settings" />
+            android:title="Tools" />
     </group>
 
-    <item android:title="@string/aditional_content">
+    <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/nav_help"
-                android:icon="@drawable/ic_help"
-                android:title="@string/help" />
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_about_us"
-                android:title="@string/about_us" />
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
         </menu>
     </item>
 

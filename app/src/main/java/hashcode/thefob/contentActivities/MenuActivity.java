@@ -1,5 +1,7 @@
 package hashcode.thefob.contentActivities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,7 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import hashcode.thefob.Entities.AccountType;
 import hashcode.thefob.R;
 
 public class MenuActivity extends AppCompatActivity
@@ -46,12 +53,42 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        final ArrayList<AccountType> AccountTypes = new ArrayList<AccountType>();
+        AccountTypes.add(new AccountType("Donut", 1, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Eclair", 2, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Froyo", 2, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("GingerBread", 4, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Honeycomb", 5, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Ice Cream Sandwich", 6, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Jelly Bean", 7, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("KitKat", 8, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Lollipop", 9, R.drawable.ic_social_facebook));
+        AccountTypes.add(new AccountType("Marshmallow", 10, R.drawable.ic_social_facebook));
+
+
+        AccountTypeAdapter accountTypeAdapter = new AccountTypeAdapter(this, AccountTypes);
+
+        final ListView listView = findViewById(R.id.list_item_view);
+        listView.setAdapter(accountTypeAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                AccountType account = (AccountType)parent.getItemAtPosition(position);
+                Intent intent = new Intent(MenuActivity.this,AccountActivity.class);
+                intent.putExtra("accountId",account.getAccountTypeId());
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
     public void onBackPressed()
     {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START))
         {
             drawer.closeDrawer(GravityCompat.START);
@@ -92,29 +129,34 @@ public class MenuActivity extends AppCompatActivity
     {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera)
+        Intent intent;
+        if (id == R.id.nav_myFob)
         {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery)
+        } else if (id == R.id.nav_favourites)
         {
 
-        } else if (id == R.id.nav_slideshow)
+        } else if (id == R.id.nav_create)
         {
 
-        } else if (id == R.id.nav_manage)
+        } else if (id == R.id.nav_settings)
         {
 
-        } else if (id == R.id.nav_share)
+        } else if (id == R.id.nav_help)
         {
-
-        } else if (id == R.id.nav_send)
+            String url = "https://github.com/Ha5h-Code/The-Fob";
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+        } else if (id == R.id.nav_about)
         {
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
