@@ -17,7 +17,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper
             "CREATE TABLE " + "AccountType" + " (" +
                     "Id" + " INTEGER PRIMARY KEY," +
                     "Name Text," +
-                    "Icon STRING" +
+                    "IconId int" +
                     " )";
 
     private static final String SQL_DELETE_ENTRIES =
