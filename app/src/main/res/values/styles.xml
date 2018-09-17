@@ -16,7 +16,7 @@
     <style name="AppTheme.AppBarOverlay" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#0091EA</item>
         <item name="android:actionBarStyle">@style/customActionBar</item>
 
     </style>

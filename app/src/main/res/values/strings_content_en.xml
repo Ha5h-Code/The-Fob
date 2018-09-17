@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="my_fob">My Fob</string>
+    <string name="my_fob" translatable="false">My Fob</string>
     <string name="settings">Settings</string>
     <string name="favourites">Favourites</string>
     <string name="help">Help</string>

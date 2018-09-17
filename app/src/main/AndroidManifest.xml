@@ -40,7 +40,10 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".settings.SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.AppBarOverlay" />
+
+        <activity android:name=".settings.AboutUsInSettings" />
     </application>
 
 </manifest>

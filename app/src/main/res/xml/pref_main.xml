@@ -40,10 +40,11 @@
 
     <PreferenceCategory android:title="@string/pref_header_about">
 
-        <Preference
-            android:selectable="false"
-            android:summary="@string/about_us" />
-
+        <Preference android:summary="@string/about_us">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="MenuActivity" />
+        </Preference>
         <Preference
             android:summary="@string/app_version"
             android:title="@string/title_version" />
@@ -53,7 +54,7 @@
             android:summary="@string/send_feedback_summary"
             android:title="@string/title_send_feedback" />
 
-        <Preference android:title="@string/pricay_policy">
+        <Preference android:title="@string/privacy_policy">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/url_privacy" />

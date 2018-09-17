@@ -9,10 +9,10 @@
     <string name="title_version">Version</string>
     <string name="send_feedback_summary">Send Feedback for developers</string>
     <string name="title_send_feedback">Send Feedback</string>
-    <string name="pricay_policy">Privacy Policy</string>
+    <string name="privacy_policy">Privacy Policy</string>
     <string name="Terms">Terms</string>
     <string name="smart_completion_duration">Duration</string>
-    <string name="smart_completion_summary">Smart Completion Summary</string>
+    <string name="smart_completion_summary">How long The Fob Completes Passwords Automatically</string>
     <string name="default_gallery_storage">Changes the password</string>
     <string-array name="languages_values">
         <item>0</item>
