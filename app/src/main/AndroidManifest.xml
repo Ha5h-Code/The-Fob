@@ -33,11 +33,11 @@
             android:label="@string/sign_up"
             android:parentActivityName=".login.LoginActivity"
             android:theme="@style/AppTheme.AppBarOverlay"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".contentActivities.AccountActivity"
             android:label="@string/title_activity_account"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
