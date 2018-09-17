@@ -25,7 +25,7 @@ public class AccountTypeOperations {
         try
             {
         ContentValues accountTypeValues = new ContentValues();
-        accountTypeValues.put("name", name);
+        accountTypeValues.put("Name", name);
         accountTypeValues.put("IconId", iconId);
         db.insert("AccountType", null, accountTypeValues);
             }
@@ -81,6 +81,30 @@ public class AccountTypeOperations {
         toast.show();
 
     }
+
+    }
+
+
+    //method to update an Account Type Name
+    public static void updateAccountName(Context context,SQLiteDatabase db,int id, String newAccountName){
+        try
+        {
+            ContentValues newAccountNameContent=new ContentValues();
+            newAccountNameContent.put("Name","newAccountName");
+
+            db.update("AccountType",
+                    newAccountNameContent,
+                    "Name = ?",
+                    new String[] {newAccountName});
+
+        }
+        catch (SQLiteException e)
+        {
+
+            Toast toast = Toast.makeText(context, "DataBase Unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+
+        }
 
     }
 
@@ -171,6 +195,8 @@ public class AccountTypeOperations {
 
 
     }
+
+
 
 
     //method use to get IconId  by giving the cursorId
