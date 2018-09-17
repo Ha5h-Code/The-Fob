@@ -1,5 +1,6 @@
 package hashcode.thefob.contentActivities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -12,8 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+
+import hashcode.thefob.Entities.Account;
 import hashcode.thefob.R;
+import hashcode.thefob.utility.AccountAdapter;
 import hashcode.thefob.utility.NavigationItemHandler;
 
 public class AccountActivity extends AppCompatActivity
@@ -47,6 +55,37 @@ public class AccountActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        final ArrayList<Account> Accounts = new ArrayList<Account>();
+        Hashtable<String, String> hT = new Hashtable<>();
+        Accounts.add(new Account(1, "Donut", hT));
+        Accounts.add(new Account(2, "Eclair", hT));
+        Accounts.add(new Account(3, "Eclair", hT));
+        Accounts.add(new Account(4, "Eclair", hT));
+        Accounts.add(new Account(5, "Eclair", hT));
+        Accounts.add(new Account(6, "Eclair", hT));
+        Accounts.add(new Account(7, "Eclair", hT));
+        Accounts.add(new Account(8, "Eclair", hT));
+        Accounts.add(new Account(9, "Eclair", hT));
+        Accounts.add(new Account(10, "Eclair", hT));
+
+
+        AccountAdapter AccountAdapter = new AccountAdapter(this, Accounts);
+
+        final ListView listView = findViewById(R.id.list_item_view);
+        listView.setAdapter(AccountAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Account account = (Account) parent.getItemAtPosition(position);
+                Intent intent = new Intent(AccountActivity.this, AccountActivity.class);
+                intent.putExtra("accountId", account.getAccountId());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

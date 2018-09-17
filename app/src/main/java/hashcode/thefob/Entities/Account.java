@@ -1,25 +1,26 @@
 package hashcode.thefob.Entities;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 public class Account {
-    private String accountId;
+    private int accountId;
     private String accountName;
     private Hashtable<String, String> accountDetails = new Hashtable<String, String>();
 
-    public Account(String accountId, String accountName, Hashtable<String, String> accountDetails) {
+    public Account(int accountId, String accountName, Hashtable<String, String> accountDetails)
+    {
         this.accountId = accountId;
         this.accountName = accountName;
         this.accountDetails = accountDetails;
     }
 
-    public String getAccountId() {
+    public int getAccountId()
+    {
         return accountId;
     }
 
-    public void setAccountId(String accountId) {
+    public void setAccountId(int accountId)
+    {
         this.accountId = accountId;
     }
 
