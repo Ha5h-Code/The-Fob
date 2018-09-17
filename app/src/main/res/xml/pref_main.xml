@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/general_settings">
+        <EditTextPreference
+
+            android:key="@string/key_password"
+            android:summary="@string/default_gallery_storage"
+            android:title="@string/change_password" />
+
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/language"
+            android:entries="@array/languages"
+            android:entryValues="@array/languages_values"
+            android:key="@string/language"
+            android:summary="@string/language_summary"
+            android:title="@string/language" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/smart_completions_settings">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/smart_completion_key"
+            android:title="@string/smart_completions_settings" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/smart_completion_duration"
+            android:entries="@array/languages"
+            android:entryValues="@array/languages"
+            android:key="@string/smart_completion_duration"
+            android:summary="@string/smart_completion_summary"
+            android:title="@string/smart_completion_duration" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_header_about">
+
+        <Preference
+            android:selectable="false"
+            android:summary="@string/about_us" />
+
+        <Preference
+            android:summary="@string/app_version"
+            android:title="@string/title_version" />
+
+        <Preference
+            android:key="@string/key_send_feedback"
+            android:summary="@string/send_feedback_summary"
+            android:title="@string/title_send_feedback" />
+
+        <Preference android:title="@string/pricay_policy">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_privacy" />
+        </Preference>
+
+        <Preference android:title="@string/Terms">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_terms" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

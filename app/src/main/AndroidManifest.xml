@@ -38,6 +38,9 @@
             android:name=".contentActivities.AccountActivity"
             android:label="@string/title_activity_account"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/title_activity_settings" />
     </application>
 
 </manifest>

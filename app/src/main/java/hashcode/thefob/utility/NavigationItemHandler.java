@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import hashcode.thefob.R;
 import hashcode.thefob.contentActivities.MenuActivity;
+import hashcode.thefob.settings.SettingsActivity;
 
 
 public class NavigationItemHandler
@@ -41,7 +42,8 @@ public class NavigationItemHandler
 
     public void handleSettings()
     {
-
+        intent = new Intent(context, SettingsActivity.class);
+        context.startActivity(intent);
     }
 
     public void handleHelp()
