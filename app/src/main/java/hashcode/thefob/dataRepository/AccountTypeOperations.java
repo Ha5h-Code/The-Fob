@@ -13,20 +13,79 @@ import java.util.ArrayList;
 import hashcode.thefob.login.LoginActivity;
 
 
+
 public class AccountTypeOperations {
-    public static void insertAccountType(SQLiteDatabase db, String name, int iconId)
+
+
+
+    //method use to insert a new Account type
+    public static void insertAccountType(Context context,SQLiteDatabase db, String name, int iconId)
     {
+
+        try
+            {
         ContentValues accountTypeValues = new ContentValues();
         accountTypeValues.put("name", name);
         accountTypeValues.put("IconId", iconId);
         db.insert("AccountType", null, accountTypeValues);
+            }
 
-    }
-
-    public static void deleteAccountType(int id)
+    catch (SQLiteException e)
     {
 
+        Toast toast = Toast.makeText(context, "DataBase Unavailable", Toast.LENGTH_SHORT);
+        toast.show();
     }
+    }
+
+
+
+
+    //method use to delete an Account Type
+    public static void deleteAccountType(Context context,SQLiteDatabase db,int id)
+    {
+        try
+        {
+        db.delete("AccountType",
+                "Id=?",
+                new String[]{Integer.toString(id)});
+        }
+        catch (SQLiteException e)
+        {
+
+        Toast toast = Toast.makeText(context, "DataBase Unavailable", Toast.LENGTH_SHORT);
+        toast.show();
+        }
+
+    }
+
+
+
+     //method to update an Account Type icon
+    public static void updateIcon(Context context,SQLiteDatabase db,int id,int newIconId){
+      try
+      {
+        ContentValues newIconIdContent=new ContentValues();
+        newIconIdContent.put("ID","newIconId");
+
+        db.update("AccountType",
+                  newIconIdContent,
+                 "ID = ?",
+                  new String[] {Integer.toString(id)});
+
+      }
+    catch (SQLiteException e)
+    {
+
+        Toast toast = Toast.makeText(context, "DataBase Unavailable", Toast.LENGTH_SHORT);
+        toast.show();
+
+    }
+
+    }
+
+
+
     public static Cursor createCursor(Context context, int cusorId) {
 
         //to convert the integer cursor id as a String value
@@ -57,12 +116,16 @@ public class AccountTypeOperations {
     }
 
 
+
+    //method to get all ids
+
     public static ArrayList<Integer> getAllId(Context context){
 
 
        Cursor cursor;
        ArrayList<Integer> idArrayList=new ArrayList<Integer>();
         try {
+
             SQLiteDatabase db = SQLiteDatabaseHelper.connectDataBase(context, LoginActivity.PASSWORD);
 
             cursor = db.query("AccountType",
@@ -94,6 +157,7 @@ public class AccountTypeOperations {
 
 
     }
+
 
 
 //method use to get AccountType Name by giving the id
