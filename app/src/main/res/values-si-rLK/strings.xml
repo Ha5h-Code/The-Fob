@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">The Fob</string>
     <string name="loginButton">ඇතුල්වන්න</string>
     <string name="master_password">ඔබේ මුරපදය ඇතුලත් කරන්න</string>
     <string name="welcome_msg_header">The Fob වෙත සාදරයෙන් පිලිගනිමු</string>

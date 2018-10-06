@@ -1,36 +1,37 @@
 package hashcode.thefob.utility;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.util.DisplayMetrics;
 
 import java.util.Locale;
 
 public class LocaleUtility
 {
-    private static Locale locale;
 
-    public static void setLocale(Locale localeIn)
+    public static void setLocale(Context context, String language)
     {
-        locale = localeIn;
-        if (locale != null)
-        {
-            Locale.setDefault(locale);
-        }
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+
+        //save data to shared preference
+        SharedPreferences.Editor editor = context.getSharedPreferences("Settings", Context.MODE_PRIVATE).edit();
+        editor.putString("AppLang", language);
+
+        editor.apply();
+
     }
 
-    public static void setConfigChange(Context context)
+    public static void loadLocale(Context context)
     {
-        if (locale != null)
-        {
-            Locale.setDefault(locale);
+        SharedPreferences prefs = context.getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString("AppLang", "");
+        setLocale(context, language);
 
-            Configuration configuration = context.getResources().getConfiguration();
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            configuration.locale = locale;
-
-            context.getResources().updateConfiguration(configuration, displayMetrics);
-        }
     }
 
 }

@@ -4,8 +4,8 @@
     <string name="general_settings">General</string>
     <string name="language_summary">Changing the language settings</string>
     <string name="smart_completions_settings">Smart Completions</string>
-    <string name="smart_completion_key">smart completion key</string>
-    <string name="app_version">1.0</string>
+    <string name="smart_completion_key" translatable="false">smart completion key</string>
+    <string name="app_version" translatable="false">1.0</string>
     <string name="title_version">Version</string>
     <string name="send_feedback_summary">Send Feedback for developers</string>
     <string name="title_send_feedback">Send Feedback</string>
